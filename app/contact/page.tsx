@@ -1,47 +1,43 @@
-import type { Metadata } from "next";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Ban, MoveRight } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { FadeUp, StaggerChildren, StaggerItem } from "@/components/shared/FadeUp";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { Button } from "@/components/ui/button";
+import { generateMetadata } from "@/lib/generate-metadata";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with BIJA, Kigali's digital agency. Start a project, book a free discovery call, or ask us anything.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata = generateMetadata("contact");
+
 
 const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#9aaabf]";
-const CARD    = "bg-[#e0e5ec] rounded-[16px] shadow-[6px_6px_14px_#a3b1c6,-6px_-6px_14px_#ffffff]";
+const CARD = "bg-[#e0e5ec] rounded-[16px] shadow-[6px_6px_14px_#a3b1c6,-6px_-6px_14px_#ffffff]";
 
 const INFO_CARDS = [
-  { Icon: MapPin, label: "Location",         value: SITE.location, href: undefined },
-  { Icon: Mail,   label: "Email",            value: SITE.email,    href: `mailto:${SITE.email}` },
-  { Icon: Phone,  label: "Phone / WhatsApp", value: SITE.phone,    href: `https://wa.me/${SITE.whatsapp}` },
+  { Icon: MapPin, label: "Location", value: SITE.location, href: undefined },
+  { Icon: Mail, label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
+  { Icon: Phone, label: "Phone / WhatsApp", value: SITE.phone, href: `https://wa.me/${SITE.whatsapp}` },
 ] as const;
 
 const DISCOVERY_BULLETS = [
-  { Icon: Clock,         text: "30 minutes, completely free" },
+  { Icon: Clock, text: "30 minutes, completely free" },
   { Icon: MessageCircle, text: "Google Meet or WhatsApp call" },
-  { Icon: Ban,           text: "No pitch, no pushy sales tactics" },
+  { Icon: Ban, text: "No pitch, no pushy sales tactics" },
 ] as const;
 
 const QUICK_FAQS = [
-  { q: "How quickly can you start?",            a: "Usually within 1-2 weeks of signing. We keep a limited client roster to give each project proper attention." },
+  { q: "How quickly can you start?", a: "Usually within 1-2 weeks of signing. We keep a limited client roster to give each project proper attention." },
   { q: "Do you work with international clients?", a: "Yes. We've worked with clients in the UK, USA, and across East Africa. Time zones are very manageable." },
-  { q: "Can you handle payment in RWF?",         a: "Yes, we accept MoMo, bank transfer (RWF & USD), and international wire. We're flexible." },
+  { q: "Can you handle payment in RWF?", a: "Yes, we accept MoMo, bank transfer (RWF & USD), and international wire. We're flexible." },
 ] as const;
 
 export default function ContactPage() {
   return (
     <>
-      {/* ── Hero ── */}
+      {/* -- Hero -- */}
       <section className="pt-40 pb-16">
         <div className="max-w-6xl mx-auto px-6">
           <FadeUp>
             <p className={`${EYEBROW} mb-4 shadow-neu-in-sm w-fit px-2 rounded-md`}>Get In Touch</p>
-            <h1 className="font-display text-6xl md:text-7xl text-ink leading-[1.05] tracking-tight mb-6 max-w-2xl">
+            <h1 className="font-display text-5xl md:text-7xl text-ink leading-[1.05] tracking-tight mb-6 max-w-2xl">
               Let&apos;s Start a Conversation
             </h1>
             <p className="text-muted text-xl leading-relaxed max-w-xl">
@@ -55,7 +51,7 @@ export default function ContactPage() {
       <section className="pb-24">
         <div className="max-w-6xl mx-auto px-6">
 
-          {/* ── Info cards ── */}
+          {/* -- Info cards -- */}
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
             {INFO_CARDS.map(({ Icon, label, value, href }) => (
               <StaggerItem key={label}>
@@ -74,7 +70,7 @@ export default function ContactPage() {
             ))}
           </StaggerChildren>
 
-          {/* ── Form + sidebar ── */}
+          {/* -- Form + sidebar -- */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10 items-start">
 
             {/* Form */}

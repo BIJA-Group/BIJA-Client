@@ -1,16 +1,12 @@
-import type { Metadata } from "next";
 import { Globe, Monitor, Palette, Search, ShoppingCart, Wrench, CheckCircle2 } from "lucide-react";
 import { SERVICES, PROCESS_STEPS } from "@/lib/constants";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { FadeUp } from "@/components/shared/FadeUp";
 import { CtaSection } from "@/components/shared/CtaSection";
+import { generateMetadata } from "@/lib/generate-metadata";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Explore BIJA's digital services: website development, web applications, UI/UX design, e-commerce, SEO, and ongoing maintenance all built for Rwanda and beyond.",
-  alternates: { canonical: "/services" },
-};
+export const metadata = generateMetadata("services");
+
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Globe, Monitor, Palette, Search, ShoppingCart, Wrench,

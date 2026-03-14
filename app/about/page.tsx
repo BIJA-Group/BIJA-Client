@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Target, Microscope, Handshake, Globe, MoveRight } from "lucide-react";
 import { TEAM, STATS } from "@/lib/constants";
@@ -8,13 +7,10 @@ import { TestimonialsSection } from "@/components/shared/TestimonialsSection";
 import { FaqSection } from "@/components/shared/FaqSection";
 import { CtaSection } from "@/components/shared/CtaSection";
 import { Button } from "@/components/ui/button";
+import { generateMetadata } from "@/lib/generate-metadata";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Meet the BIJA team, Kigali-born digital craftspeople who believe African businesses deserve world-class digital products.",
-  alternates: { canonical: "/about" },
-};
+export const metadata = generateMetadata("about");
+
 
 const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#9aaabf]";
 const CARD = "bg-[#e0e5ec] rounded-[16px] shadow-[6px_6px_14px_#a3b1c6,-6px_-6px_14px_#ffffff]";

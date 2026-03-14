@@ -288,10 +288,10 @@ export const FAQS = [
 
 export const TEAM = [
   {
-    name: "Mugisha Bija",
-    role: "Founder & Lead Engineer",
-    initials: "MB",
-    bio: "Full-stack developer with 8+ years experience. Previously at Andela. Passionate about clean code and measurable outcomes.",
+    name: "AIMABLE Ukobizaba",
+    role: "Senior Software Engineer",
+    initials: "AU",
+    bio: "Full-stack developer with 3+ years experience. Previously at Andela. Passionate about clean code and measurable outcomes.",
   },
   {
     name: "Isimbi Claire",

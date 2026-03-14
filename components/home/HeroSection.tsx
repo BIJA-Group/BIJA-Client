@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const wrap = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
-const item = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.4, 0, 0.2, 1] } } };
+const item = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.4, 0, 0.2, 1] as const } } };
 
 export function HeroSection() {
   return (
@@ -24,15 +24,15 @@ export function HeroSection() {
 
             <motion.h1 variants={item} className="font-display text-5xl md:text-6xl lg:text-7xl text-ink leading-[1.05] tracking-tight mb-6">
               We Build the Web{" "}
-              <em className="not-italic block">Rwanda Deserves</em>
+              <em className="not-italic block">World Deserves</em>
             </motion.h1>
 
             <motion.p variants={item} className="text-muted text-lg leading-relaxed mb-10 max-w-lg">
-              BIJA is Kigali's digital craft studio. We design and engineer high-performance websites, platforms, and digital products that drive real business results.
+              BIJA is Kigali&apos;s digital craft studio. We design and engineer high-performance websites, platforms, and digital products that drive real business results.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-wrap gap-4">
-              <Button variant="dark" size="lg" asChild>
+              <Button size="lg" asChild className="shadow-neu-in-sm">
                 <Link href="/contact">Start a Project <ArrowRight className="size-4" /></Link>
               </Button>
               <Button variant="default" size="lg" asChild>
@@ -76,7 +76,7 @@ export function HeroSection() {
             </div>
 
             <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#e0e5ec] shadow-neu-in-sm text-sm font-medium text-muted">
-              📍 Kigali, Rwanda
+              <MapPin /> Kigali, Rwanda
             </span>
           </motion.div>
         </div>

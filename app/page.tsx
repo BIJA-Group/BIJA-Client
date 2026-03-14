@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { SITE } from "@/lib/constants";
 import { TestimonialsSection } from "@/components/shared/TestimonialsSection";
 import { FaqSection } from "@/components/shared/FaqSection";
 import { CtaSection } from "@/components/shared/CtaSection";
@@ -9,12 +7,9 @@ import { ProcessSection } from "@/components/home/ProcessSection";
 import { CaseStudyTeaser } from "@/components/home/CaseStudyTeaser";
 import { StatsSection } from "@/components/home/StatsSection";
 import { TrustedBy } from "@/components/home/TrustedBy";
+import { generateMetadata } from "@/lib/generate-metadata";
 
-export const metadata: Metadata = {
-  title: `${SITE.name} - Digital Agency, Kigali Rwanda`,
-  description: SITE.description,
-  alternates: { canonical: "/" },
-};
+export const metadata = generateMetadata("home");
 
 export default function HomePage() {
   return (

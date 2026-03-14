@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
 import { CASE_STUDIES } from "@/lib/constants";
 import { FadeUp } from "@/components/shared/FadeUp";
 import { CtaSection } from "@/components/shared/CtaSection";
+import { generateMetadata } from "@/lib/generate-metadata";
 
-export const metadata: Metadata = {
-  title: "Case Studies",
-  description:
-    "See how BIJA has helped Rwandan businesses grow with custom digital products. Real challenges, real solutions, real results.",
-  alternates: { canonical: "/case-studies" },
-};
+export const metadata = generateMetadata("caseStudies");
+
 
 const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-subtle";
 const CARD = "bg-[#e0e5ec] rounded-[16px] shadow-[6px_6px_14px_#a3b1c6,-6px_-6px_14px_#ffffff]";

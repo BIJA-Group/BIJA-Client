@@ -16,76 +16,161 @@ const BUDGETS = ["Under $1,000", "$1,000 - $3,000", "$3,000 - $8,000", "$8,000 -
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState(false);
+
   const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactSchema as unknown as Parameters<typeof zodResolver>[0]),
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onSubmit = async (_: ContactFormData) => {
-    await new Promise(r => setTimeout(r, 800));
-    setSubmitted(true);
+    setSendError(false);
+    try {
+      await new Promise(r => setTimeout(r, 800));
+      // await fetch()
+      setSubmitted(true);
+    } catch {
+      setSendError(true);
+    }
   };
 
   return (
     <AnimatePresence mode="wait">
       {submitted ? (
-        <motion.div key="ok" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
-          className="bg-[#e0e5ec] rounded-[16px] shadow-neu-in p-12 text-center">
+        <motion.div
+          key="ok"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-[#e0e5ec] rounded-[16px] shadow-neu-in p-12 text-center"
+        >
           <CheckCircle2 className="size-12 text-green-500 mx-auto mb-4" />
           <h3 className="font-display text-2xl text-ink mb-2">Message Received!</h3>
           <p className="text-muted leading-relaxed">We&apos;ll be in touch within one business day.</p>
         </motion.div>
       ) : (
-        <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
-
+        <motion.form
+          key="form"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-5"
+          noValidate
+        >
+          {/* Name row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
+            <div className="flex flex-col gap-2">
               <Label htmlFor="firstName">First Name *</Label>
-              <Input id="firstName" placeholder="Amahoro" className="shadow-neu-in-sm border-none" hasError={!!errors.firstName} {...register("firstName")} />
-              {errors.firstName && <p className="text-red-500 text-xs mt-1.5">{errors.firstName.message}</p>}
+              <Input
+                id="firstName"
+                placeholder="Amahoro"
+                {...register("firstName")}
+                className={`shadow-neu-in-sm border-none ${errors.firstName ? "border-destructive" : ""}`}
+              />
+              {errors.firstName && (
+                <p className="text-xs text-destructive">{errors.firstName.message}</p>
+              )}
             </div>
-            <div>
+            <div className="flex flex-col gap-2">
               <Label htmlFor="lastName">Last Name *</Label>
-              <Input id="lastName" placeholder="Mukamana" className="shadow-neu-in-sm border-none" hasError={!!errors.lastName} {...register("lastName")} />
-              {errors.lastName && <p className="text-red-500 text-xs mt-1.5">{errors.lastName.message}</p>}
+              <Input
+                id="lastName"
+                placeholder="Mukamana"
+                {...register("lastName")}
+                className={`shadow-neu-in-sm border-none ${errors.lastName ? "border-destructive" : ""}`}
+              />
+              {errors.lastName && (
+                <p className="text-xs text-destructive">{errors.lastName.message}</p>
+              )}
             </div>
           </div>
 
-          <div>
+          {/* Email */}
+          <div className="flex flex-col gap-2">
             <Label htmlFor="email">Email Address *</Label>
-            <Input id="email" type="email" placeholder="you@company.com" className="shadow-neu-in-sm border-none" hasError={!!errors.email} {...register("email")} />
-            {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email.message}</p>}
+            <Input
+              id="email"
+              type="email"
+              placeholder="you@company.com"
+              {...register("email")}
+              className={`shadow-neu-in-sm border-none ${errors.email ? "border-destructive" : ""}`}
+            />
+            {errors.email && (
+              <p className="text-xs text-destructive">{errors.email.message}</p>
+            )}
           </div>
 
-          <div>
+          {/* Phone */}
+          <div className="flex flex-col gap-2">
             <Label htmlFor="phone">Phone / WhatsApp</Label>
-            <Input id="phone" type="tel" placeholder="+250 7XX XXX XXX" className="shadow-neu-in-sm border-none" hasError={!!errors.phone} {...register("phone")} />
-            {errors.phone && <p className="text-red-500 text-xs mt-1.5">{errors.phone.message}</p>}
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="+250 7XX XXX XXX"
+              {...register("phone")}
+              className={`shadow-neu-in-sm border-none ${errors.phone ? "border-destructive" : ""}`}
+            />
+            {errors.phone && (
+              <p className="text-xs text-destructive">{errors.phone.message}</p>
+            )}
           </div>
 
-          <div>
+          {/* Service */}
+          <div className="flex flex-col gap-2">
             <Label>Service</Label>
             <Select onValueChange={v => setValue("service", v)}>
-              <SelectTrigger className="shadow-neu-in-sm border-none"><SelectValue placeholder="Select a service..." /></SelectTrigger>
-              <SelectContent className="bg-[#e0e5ec]">{SERVICES.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
+              <SelectTrigger className="shadow-neu-in-sm border-none">
+                <SelectValue placeholder="Select a service..." />
+              </SelectTrigger>
+              <SelectContent className="bg-[#e0e5ec]">
+                {SERVICES.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+              </SelectContent>
             </Select>
           </div>
 
-          <div>
+          {/* Budget */}
+          <div className="flex flex-col gap-2">
             <Label>Budget Range</Label>
             <Select onValueChange={v => setValue("budget", v)}>
-              <SelectTrigger className="shadow-neu-in-sm border-none"><SelectValue placeholder="Select a range..." /></SelectTrigger>
-              <SelectContent className="bg-[#e0e5ec]">{BUDGETS.map(b => <SelectItem key={b} value={b}>{b}</SelectItem>)}</SelectContent>
+              <SelectTrigger className="shadow-neu-in-sm border-none">
+                <SelectValue placeholder="Select a range..." />
+              </SelectTrigger>
+              <SelectContent className="bg-[#e0e5ec]">
+                {BUDGETS.map(b => <SelectItem key={b} value={b}>{b}</SelectItem>)}
+              </SelectContent>
             </Select>
           </div>
 
-          <div>
+          {/* Message */}
+          <div className="flex flex-col gap-2">
             <Label htmlFor="message">Tell Us About Your Project *</Label>
-            <Textarea id="message" className="shadow-neu-in-sm border-none" placeholder="What are you trying to achieve? What's the timeline?" hasError={!!errors.message} rows={5} {...register("message")} />
-            {errors.message && <p className="text-red-500 text-xs mt-1.5">{errors.message.message}</p>}
+            <Textarea
+              id="message"
+              placeholder="What are you trying to achieve? What's the timeline?"
+              rows={5}
+              {...register("message")}
+              className={`shadow-neu-in-sm border-none ${errors.message ? "border-destructive" : ""}`}
+            />
+            {errors.message && (
+              <p className="text-xs text-destructive">{errors.message.message}</p>
+            )}
           </div>
 
-          <Button size="lg" type="submit" disabled={isSubmitting} className="w-fit cursor-pointer shadow-neu-out-sm">
+          {sendError && (
+            <div className="flex items-center gap-3 p-4 rounded-neu-sm bg-[#e0e5ec] shadow-[inset_3px_3px_8px_#c0392b33,inset_-2px_-2px_6px_#ffffff]">
+              <span className="text-red-500 text-lg">✕</span>
+              <div>
+                <p className="text-sm font-semibold text-red-500">Message failed to send.</p>
+                <p className="text-xs text-muted mt-0.5">Please try again or reach us directly at bija@gmail.com</p>
+              </div>
+            </div>
+          )}
+
+          <Button
+            size="lg"
+            type="submit"
+            disabled={isSubmitting}
+            className="w-fit cursor-pointer shadow-neu-out-sm"
+          >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
         </motion.form>
