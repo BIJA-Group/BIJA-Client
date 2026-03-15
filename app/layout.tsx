@@ -23,7 +23,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} - Digital Agency, Kigali Rwanda`,
+    default: `${SITE.name} Digital Agency, Kigali Rwanda`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
