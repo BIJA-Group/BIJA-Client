@@ -2,6 +2,13 @@
 @import "tw-animate-css";
 
 
+/* 
+  colors:
+  Deep Emerald Green:  #0F3D2E
+  luxury gold: #D4AF37
+  gray: #6b7a90
+*/
+
 /* -- Design tokens -- */
 @theme {
   /* Fonts */
@@ -16,8 +23,9 @@
   --color-neu-alt: #d9e0eb;
   --color-ink: #1e2d40;
   --color-ink-mid: #3d4e63;
-  --color-muted: #6b7a90;
-  --color-subtle: #9aaabf;
+  --color-muted: #33445c;
+  --color-subtle: #0F3D2E;
+  /* --color-subtle: #9aaabf; */
 
   /* Shadow scale - exposed as Tailwind shadow-* tokens */
   --shadow-neu-out: 6px 6px 14px #a3b1c6, -6px -6px 14px #ffffff;

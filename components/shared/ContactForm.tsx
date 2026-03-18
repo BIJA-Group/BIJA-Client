@@ -10,8 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { SERVICES } from "@/lib/constants";
 
-const SERVICES = ["Website Development", "Web Application", "UI/UX Design", "E-Commerce", "SEO & Performance", "Maintenance & Growth", "Not sure yet"];
+// const SERVICES = ["CRM Automations", "Workflow Automations", "Website Development", "Automation Audit", "UI/UX Design", "E-Commerce", "SEO & Performance", "Maintenance & Growth", "Not sure yet"];
 const BUDGETS = ["Under $1,000", "$1,000 - $3,000", "$3,000 - $8,000", "$8,000 - $20,000", "$20,000+", "Not sure"];
 
 export function ContactForm() {
@@ -122,7 +123,7 @@ export function ContactForm() {
                 <SelectValue placeholder="Select a service..." />
               </SelectTrigger>
               <SelectContent className="bg-[#e0e5ec]">
-                {SERVICES.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                {SERVICES.map(s => <SelectItem key={s.slug} value={s.title}>{s.title}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>

@@ -21,8 +21,8 @@ export function ServicesGrid() {
             return (
               <StaggerItem key={service.slug}>
                 <Link href="/services" className="block h-full group">
-                  <div className="bg-[#e0e5ec] rounded-[16px] shadow-neu-out p-9 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-out-lg">
-                    <div className="size-14 rounded-neu-sm bg-[#e0e5ec] shadow-neu-in-sm flex items-center justify-center mb-6">
+                  <div className="border-t-2 border-color-neu-bg bg-color-neu-bg rounded-[16px] shadow-neu-out p-9 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-neu-out-lg">
+                    <div className="size-14 rounded-neu-sm bg-color-neu-bg shadow-neu-in-sm flex items-center justify-center mb-6">
                       <Icon className="size-6 text-muted group-hover:text-ink transition-colors" />
                     </div>
                     <h3 className="font-display text-xl text-ink mb-3">{service.title}</h3>

@@ -19,8 +19,8 @@ export function FaqSection({ items = FAQS, eyebrow = "Questions", title = "Frequ
           {items.map((faq, i) => (
             <StaggerItem key={i}>
               <Accordion type="single" collapsible>
-                <AccordionItem value={`item-${i}`}>
-                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionItem value={`item-${i}`} className="shadow-neu-out rounded-r-md p-1 border-l px-2">
+                  <AccordionTrigger className="cursor-pointer">{faq.question}</AccordionTrigger>
                   <AccordionContent>{faq.answer}</AccordionContent>
                 </AccordionItem>
               </Accordion>

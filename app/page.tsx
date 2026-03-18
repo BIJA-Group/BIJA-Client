@@ -4,9 +4,9 @@ import { CtaSection } from "@/components/shared/CtaSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { ProcessSection } from "@/components/home/ProcessSection";
-import { CaseStudyTeaser } from "@/components/home/CaseStudyTeaser";
+// import { CaseStudyTeaser } from "@/components/home/CaseStudyTeaser";
 import { StatsSection } from "@/components/home/StatsSection";
-import { TrustedBy } from "@/components/home/TrustedBy";
+// import { TrustedBy } from "@/components/home/TrustedBy";
 import { generateMetadata } from "@/lib/generate-metadata";
 
 export const metadata = generateMetadata("home");
@@ -15,10 +15,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TrustedBy />
+      {/* <TrustedBy /> */}
       <ServicesGrid />
       <ProcessSection />
-      <CaseStudyTeaser />
+      {/* <CaseStudyTeaser /> */}
       <StatsSection />
       <TestimonialsSection />
       <FaqSection altBg />

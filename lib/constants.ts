@@ -12,7 +12,7 @@ export const SITE = {
   phone: "+250 783 309 468",
   whatsapp: "250783309468",
   location: "Kigali, Rwanda",
-  url: "https://bija.rw",
+  url: "https://bija-group.vercel.app",
 } as const;
 
 export const SERVICES = [
@@ -30,12 +30,12 @@ export const SERVICES = [
       "CMS integration for easy self-editing",
     ],
     investment: "$1,500+",
-    timeline: "3–8 weeks from kickoff",
+    timeline: "3-8 weeks from kickoff",
   },
   {
     icon: "Monitor",
-    title: "Web Applications",
-    slug: "web-apps",
+    title: "EDIT - CRM Automations",
+    slug: "web-apps-crm",
     short: "Complex platforms, dashboards, and tools - from MVPs to enterprise-scale systems.",
     description:
       "Complex platforms, portals, dashboards, and SaaS tools. We architect, design, and build full-stack web applications from scratch.",
@@ -46,7 +46,39 @@ export const SERVICES = [
       "Scalable cloud infrastructure",
     ],
     investment: "$4,000+",
-    timeline: "8–20 weeks depending on scope",
+    timeline: "8-20 weeks depending on scope",
+  },
+  {
+    icon: "Palette",
+    title: "EDIT - Workflow Automations",
+    slug: "ui-ux-design-workflow",
+    short: "Interfaces that feel intuitive. We design for humans first, technology second.",
+    description:
+      "Great design is invisible. We create interfaces so intuitive that users never have to think - they just accomplish their goals.",
+    features: [
+      "User research & journey mapping",
+      "Wireframes & interactive prototypes",
+      "Design systems & component libraries",
+      "Usability testing & iteration",
+    ],
+    investment: "$800+",
+    timeline: "2–5 weeks for full design phase",
+  },
+  {
+    icon: "Palette",
+    title: "EDIT Automation Audit",
+    slug: "ui-ux-design-auto",
+    short: "Interfaces that feel intuitive. We design for humans first, technology second.",
+    description:
+      "Great design is invisible. We create interfaces so intuitive that users never have to think - they just accomplish their goals.",
+    features: [
+      "User research & journey mapping",
+      "Wireframes & interactive prototypes",
+      "Design systems & component libraries",
+      "Usability testing & iteration",
+    ],
+    investment: "$800+",
+    timeline: "2–5 weeks for full design phase",
   },
   {
     icon: "Palette",
@@ -294,7 +326,7 @@ export const TEAM = [
     bio: "Full-stack developer with 3+ years experience. Previously at Andela. Passionate about clean code and measurable outcomes.",
   },
   {
-    name: "Isimbi Claire",
+    name: "Bruce",
     role: "Lead Designer",
     initials: "IC",
     bio: "UX specialist focused on conversion-driven design. She's designed interfaces used by over 500,000 people across East Africa.",
@@ -311,7 +343,7 @@ export const STATS = [
   { value: "40+", label: "Projects Delivered" },
   { value: "98%", label: "Client Satisfaction" },
   { value: "5+", label: "Years in Kigali" },
-  { value: "$2M+", label: "Revenue Generated for Clients" },
+  { value: "$2M+", label: "Client Revenue Generated" },
 ] as const;
 
 export const TRUSTED_BY = [

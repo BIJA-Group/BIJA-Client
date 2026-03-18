@@ -12,7 +12,7 @@ import { generateMetadata } from "@/lib/generate-metadata";
 export const metadata = generateMetadata("about");
 
 
-const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#9aaabf]";
+const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#9aaabf] text-subtle";
 const CARD = "bg-[#e0e5ec] rounded-[16px] shadow-[6px_6px_14px_#a3b1c6,-6px_-6px_14px_#ffffff]";
 const CARD_SM = "bg-[#e0e5ec] rounded-[10px] shadow-[3px_3px_8px_#a3b1c6,-3px_-3px_8px_#ffffff]";
 const INSET = "bg-[#e0e5ec] rounded-[10px] shadow-[inset_2px_2px_6px_#a3b1c6,inset_-2px_-2px_6px_#ffffff]";
