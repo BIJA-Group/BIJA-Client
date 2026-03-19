@@ -1,9 +1,11 @@
-import { Globe, Monitor, Palette, Search, ShoppingCart, Wrench, CheckCircle2 } from "lucide-react";
+import { Globe, Monitor, Palette, Search, ShoppingCart, Wrench, CheckCircle2, MoveRight } from "lucide-react";
 import { SERVICES, PROCESS_STEPS } from "@/lib/constants";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { FadeUp } from "@/components/shared/FadeUp";
 import { CtaSection } from "@/components/shared/CtaSection";
 import { generateMetadata } from "@/lib/generate-metadata";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata = generateMetadata("services");
 
@@ -13,7 +15,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 };
 
 /* -- Reusable atoms -- */
-const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#9aaabf]";
+const EYEBROW = "text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#9aaabf] text-ink";
 const CARD = "bg-[#e0e5ec] rounded-[16px] shadow-[6px_6px_14px_#a3b1c6,-6px_-6px_14px_#ffffff]";
 const INSET = "bg-[#e0e5ec] rounded-[10px] shadow-[inset_2px_2px_6px_#a3b1c6,inset_-2px_-2px_6px_#ffffff]";
 const DIVIDER = "h-px bg-[#a3b1c6] opacity-30 my-7";
@@ -63,16 +65,29 @@ export default function ServicesPage() {
                       </ul>
                     </div>
 
-                    {/* Investment */}
-                    <div className={`m-4 p-10 flex flex-col justify-center rounded-neu-sm bg-[#e0e5ec] shadow-neu-in ${flip ? "lg:order-1" : ""}`}>
-                      <p className={`${EYEBROW} mb-4`}>Typical Investment</p>
-                      <p className="font-display text-5xl text-ink mb-2">{service.investment}</p>
-                      <p className="text-muted text-sm leading-relaxed mb-0">
-                        Scoped and fixed-priced after a thorough discovery session. No surprises.
-                      </p>
+                    {/* Right panel */}
+                    <div className={`m-4 p-10 flex flex-col gap-4 rounded-neu-sm bg-[#e0e5ec] shadow-neu-in ${flip ? "lg:order-1" : ""}`}>
+
+                      {/* Timeline */}
+                      <div>
+                        <p className={`${EYEBROW} mb-1`}>Timeline</p>
+                        <p className="font-display text-4xl text-ink">{service.timeline}</p>
+                      </div>
+
                       <div className={DIVIDER} />
-                      <p className={`${EYEBROW} mb-2`}>Timeline</p>
-                      <p className="text-ink font-semibold text-sm">{service.timeline}</p>
+
+                      {/* Best for */}
+                      <div>
+                        <p className={`${EYEBROW} mb-2 font-semibold`}>Best For</p>
+                        <p className="text-ink text-sm leading-relaxed">{service.bestFor}</p>
+                      </div>
+
+                      <div className={DIVIDER} />
+
+                      <Button size="sm" asChild className="shadow-neu-in-sm w-fit">
+                        <Link href="/contact">Start This Service <MoveRight /> </Link>
+                      </Button>
+
                     </div>
                   </div>
                 </div>

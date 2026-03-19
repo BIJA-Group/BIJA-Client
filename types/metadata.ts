@@ -62,7 +62,7 @@ export const pageMetadata: Record<string, FullMetaConfig> = {
     },
 
     services: {
-        title: `Services | ${SITE.name}`,
+        title: `Services`,
         description: `Explore BIJA's digital services: website development, web applications, UI/UX design, e-commerce, SEO, and ongoing maintenance - all built for Rwanda and beyond.`,
         openGraph: {
             type: "website",
@@ -89,7 +89,7 @@ export const pageMetadata: Record<string, FullMetaConfig> = {
     },
 
     caseStudies: {
-        title: `Case Studies | ${SITE.name}`,
+        title: `Case Studies`,
         description: `See how BIJA has helped Rwandan businesses grow with custom digital products. Real challenges, real solutions, real results.`,
         openGraph: {
             type: "website",
@@ -116,7 +116,7 @@ export const pageMetadata: Record<string, FullMetaConfig> = {
     },
 
     about: {
-        title: `About | ${SITE.name}`,
+        title: `About`,
         description: `Meet the BIJA team - Kigali-born digital craftspeople who believe African businesses deserve world-class digital products.`,
         openGraph: {
             type: "website",
@@ -143,7 +143,7 @@ export const pageMetadata: Record<string, FullMetaConfig> = {
     },
 
     contact: {
-        title: `Contact | ${SITE.name}`,
+        title: `Contact`,
         description: `Get in touch with BIJA - Kigali's digital agency. Start a project, book a free discovery call, or ask us anything.`,
         openGraph: {
             type: "website",
