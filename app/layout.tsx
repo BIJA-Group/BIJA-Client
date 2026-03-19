@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SITE } from "@/lib/constants";
+import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script";
 
 const dmSerifDisplay = DM_Serif_Display({
   weight: ["400"],
@@ -32,6 +34,8 @@ export const metadata: Metadata = {
     "digital agency Rwanda",
     "website design Rwanda",
     "web application development",
+    "CRM Automations Rwanda",
+    "Online Automations",
     "UI UX design Kigali",
     "e-commerce Rwanda",
     "BIJA digital agency",
@@ -75,6 +79,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5T2S3SXRC0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G-5T2S3SXRC0');
+          `}
+        </Script>
       </body>
     </html>
   );
