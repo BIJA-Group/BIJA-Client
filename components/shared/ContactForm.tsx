@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SERVICES } from "@/lib/constants";
+import emailjs from "@emailjs/browser"
 
 // const SERVICES = ["CRM Automations", "Workflow Automations", "Website Development", "Automation Audit", "UI/UX Design", "E-Commerce", "SEO & Performance", "Maintenance & Growth", "Not sure yet"];
 const BUDGETS = ["Under $1,000", "$1,000 - $3,000", "$3,000 - $8,000", "$8,000 - $20,000", "$20,000+", "Not sure"];
@@ -19,18 +20,30 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sendError, setSendError] = useState(false);
 
-  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm<ContactFormData>({
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema as unknown as Parameters<typeof zodResolver>[0]),
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit = async (_: ContactFormData) => {
-    setSendError(false);
+  const onSubmit = async (data: ContactFormData) => {
     try {
-      await new Promise(r => setTimeout(r, 800));
-      // await fetch()
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_KEY!,
+        {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone ?? "",
+          service: data.service ?? "",
+          budget: data.budget ?? "",
+          message: data.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
       setSubmitted(true);
-    } catch {
+      reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
       setSendError(true);
     }
   };
@@ -161,7 +174,7 @@ export function ContactForm() {
               <span className="text-red-500 text-lg">✕</span>
               <div>
                 <p className="text-sm font-semibold text-red-500">Message failed to send.</p>
-                <p className="text-xs text-muted mt-0.5">Please try again or reach us directly at bija@gmail.com</p>
+                <p className="text-xs text-muted mt-0.5">Please try again or reach us directly at groupbija@gmail.com</p>
               </div>
             </div>
           )}

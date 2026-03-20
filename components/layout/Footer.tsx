@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { SITE } from "@/lib/constants";
+import Image from "next/image";
 
 const PAGES = [
   { label: "Home", href: "/" },
@@ -17,8 +18,12 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-[#e0e5ec] rounded-[16px] shadow-neu-out p-12 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="md:col-span-1">
-              <p className="font-display text-3xl text-ink mb-4">{SITE.name}</p>
+            <div className="md:col-span-1 w-fit">
+              <div className="flex flex-row gap-1 items-center mb-2">
+                <Image src='/Bija-Logo.png' alt="Bija Group Logo" width={45} height={45} />
+                <p className="font-display text-3xl text-ink">{SITE.name}</p>
+              </div>
+
               <p className="text-sm text-muted leading-relaxed mb-6">
                 Kigali&apos;s digital craft studio. We build websites and applications that drive real business results across Rwanda and beyond.
               </p>
@@ -62,7 +67,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <p className="text-sm text-muted">© {new Date().getFullYear()} {SITE.name} Digital Agency. All rights reserved.</p>
+        <p className="text-sm text-muted">&copy; {new Date().getFullYear()} {SITE.name} Digital Agency. All rights reserved.</p>
       </div>
     </footer>
   );

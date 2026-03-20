@@ -7,6 +7,7 @@ import { Menu, MoveRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -70,7 +71,9 @@ export function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.10, ease: [0.4, 0, 0.2, 1] }}
             >
-              <Link href="/" className="font-display text-2xl text-ink hover:opacity-75 transition-opacity">
+
+              <Link href="/" className=" flex flex-row gap-1 font-display text-2xl text-ink hover:opacity-75 transition-opacity">
+                <Image src='/Bija-Logo.png' alt="Bija Group Logo" width={30} height={30} />  
                 {SITE.name}
               </Link>
             </motion.div>

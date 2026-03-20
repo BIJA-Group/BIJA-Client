@@ -8,9 +8,9 @@ export const SITE = {
   tagline: "Digital Agency, Kigali Rwanda",
   description:
     "BIJA is Kigali's premier digital craft studio. We design and engineer high-performance websites, platforms, and digital products that drive real business results.",
-  email: "bija@gmail.com",
-  phone: "+250 783 309 468",
-  whatsapp: "250783309468",
+  email: "groupbija@gmail.com",
+  phone: "+250 786 765 935",
+  whatsapp: "250786765935",
   location: "Kigali, Rwanda",
   url: "https://bija-group.vercel.app",
 } as const;
