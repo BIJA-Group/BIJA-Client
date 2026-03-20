@@ -13,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SERVICES } from "@/lib/constants";
 import emailjs from "@emailjs/browser"
 
+// Added the .envs in prod
 const BUDGETS = ["Under $1,000", "$1,000 - $3,000", "$3,000 - $8,000", "$8,000 - $20,000", "$20,000+", "Not sure"];
 
 export function ContactForm() {
