@@ -13,7 +13,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SERVICES } from "@/lib/constants";
 import emailjs from "@emailjs/browser"
 
-// const SERVICES = ["CRM Automations", "Workflow Automations", "Website Development", "Automation Audit", "UI/UX Design", "E-Commerce", "SEO & Performance", "Maintenance & Growth", "Not sure yet"];
 const BUDGETS = ["Under $1,000", "$1,000 - $3,000", "$3,000 - $8,000", "$8,000 - $20,000", "$20,000+", "Not sure"];
 
 export function ContactForm() {
