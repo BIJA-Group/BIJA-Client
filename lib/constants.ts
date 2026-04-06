@@ -352,7 +352,7 @@ export const STATS = [
   { value: "40+", label: "Projects Delivered" },
   { value: "98%", label: "Client Satisfaction" },
   { value: "5+", label: "Years in Kigali" },
-  { value: "$2M+", label: "Client Revenue Generated" },
+  { value: "$120K+", label: "Client Revenue Generated" },
 ] as const;
 
 export const TRUSTED_BY = [
